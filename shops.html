@@ -67,6 +67,11 @@
   #delivwrap{display:none;padding:14px}
   .dnote{font-size:11px;color:#555}
   footer{max-width:1100px;margin:0 auto 30px;padding:0 14px;font-size:11px;color:#888;line-height:1.6}
+  body.mode-deliv #mapwrap{height:auto;min-height:0}
+  body.mode-deliv #map{display:none}
+  body.mode-deliv #panel{position:static;max-width:none;max-height:none;border-radius:0;box-shadow:none;border-bottom:1px solid #eee}
+  body.mode-deliv #legend{display:none}
+  body.mode-deliv #langtoggle{top:14px}
   @media(max-width:700px){#panel{max-width:78vw}table.rt th:nth-child(4),table.rt td:nth-child(4){display:none}}
 </style>
 </head>
@@ -269,11 +274,10 @@ $('clear').onclick=()=>{q='';fCountry='';fKinds.clear();fTags.clear();minRating=
 $('legend-toggle').onclick=()=>{const b=$('legend-body');b.style.display=b.style.display==='none'?'block':'none'};
 function setMode(m){
   MODE=m;
+  document.body.classList.toggle('mode-deliv',m==='deliv');
   $('tab-near').classList.toggle('on',m==='near');$('tab-deliv').classList.toggle('on',m==='deliv');
   $('nearcontrols').style.display=m==='near'?'block':'none';
   $('delivwrap').style.display=m==='deliv'?'block':'none';
-  $('legend').style.display=m==='near'?'block':'none';
-  document.getElementById('map').style.visibility=m==='near'?'visible':'hidden';
   if(m==='near'){map.invalidateSize();refreshMarkers()}else{updateTable()}
 }
 $('tab-near').onclick=()=>setMode('near');
