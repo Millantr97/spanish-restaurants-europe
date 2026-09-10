@@ -1,0 +1,40 @@
+
+:root{--wine:#7B1B2C;--ink:#222;--mut:#666}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;background:#fafafa}
+nav.top{background:var(--wine);color:#fff;padding:10px 16px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:14px}
+nav.top a{color:#fff;text-decoration:none;font-weight:600}
+nav.top a:hover{text-decoration:underline}
+nav.top .brand{font-weight:800}
+nav.top .lang{margin-left:auto;border:1px solid rgba(255,255,255,.6);border-radius:12px;padding:1px 10px;font-size:12px}
+main{max-width:780px;margin:0 auto;padding:24px 16px 64px;background:#fff}
+h1{color:var(--wine);font-size:28px;line-height:1.25;margin:8px 0 4px}
+h2{color:var(--wine);font-size:21px;margin:34px 0 8px}
+h3{font-size:17px;margin:22px 0 4px}
+.meta{color:var(--mut);font-size:13px;margin-bottom:18px}
+a{color:#0563C1}
+.rlist{list-style:none;padding:0;margin:14px 0}
+.rlist li{border:1px solid #e3e3e3;border-left:4px solid var(--wine);border-radius:8px;padding:12px 14px;margin:10px 0;background:#fff}
+.rlist .nm{font-weight:700;font-size:16px}
+.rlist .cat{color:var(--mut);font-size:12px}
+.rlist .rating{color:#b45f06;font-weight:700;font-size:13px}
+.rlist .addr{color:var(--mut);font-size:13px;margin-top:2px}
+.rlist .dishes{font-size:13px;margin-top:6px}
+.rlist .dishes b{color:var(--wine)}
+.rlist .price{font-size:12px;color:var(--mut);margin-top:4px}
+.rlist .links{font-size:13px;margin-top:6px}
+.callout{background:#f7f0e8;border:1px solid #e8dcc8;border-radius:8px;padding:12px 14px;font-size:14px;margin:18px 0}
+.ing{background:#fbf7f2;border-radius:8px;padding:4px 18px 14px}
+.ing li{margin:3px 0}
+ol.steps li{margin:8px 0}
+footer.site{max-width:780px;margin:0 auto;padding:20px 16px;color:var(--mut);font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.grid a.card{display:block;border:1px solid #e3e3e3;border-radius:8px;padding:12px 14px;text-decoration:none;color:var(--ink);background:#fff}
+.grid a.card:hover{border-color:var(--wine)}
+.grid a.card b{color:var(--wine)}
+.grid a.card span{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+table.rank{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+table.rank th,table.rank td{border-bottom:1px solid #eee;padding:7px 8px;text-align:left}
+table.rank th{color:var(--wine);font-size:12px;text-transform:uppercase}
+.cc{color:var(--mut);font-size:12px}
+@media(max-width:640px){h1{font-size:23px}}
