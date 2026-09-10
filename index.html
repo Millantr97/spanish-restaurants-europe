@@ -82,6 +82,7 @@
   #comments-setup{border:1px dashed #c9a0a8;background:#fdf6f7;border-radius:8px;padding:14px;font-size:12px;color:#555;line-height:1.5}
   #comments-setup b{color:#7B1B2C}
   #comments-setup code{background:#f0e4e6;padding:1px 5px;border-radius:4px;font-size:11px}
+  #topnav{display:none}
   @media (max-width:600px){
     /* Mobile: map first, then filters below it (no overlay), then the table */
     #mapwrap{display:flex;flex-direction:column;height:auto;min-height:0}
@@ -89,18 +90,25 @@
     #panel{order:2;position:static;max-width:none;max-height:none;overflow:visible;
       border-radius:0;box-shadow:none;border-bottom:1px solid #e3e3e3;padding:12px 14px}
     #legend{top:8px;bottom:auto;right:8px;max-width:200px;padding:6px 10px;font-size:10px}
+    #topnav{display:flex;flex-wrap:wrap;gap:14px;align-items:center;background:#7B1B2C;color:#fff;
+      padding:10px 14px;font-size:14px}
+    #topnav a{color:#fff;text-decoration:none;font-weight:600}
+    #topnav b{font-weight:800;color:#fff}
+    #topnav .lang{margin-left:auto;border:1px solid rgba(255,255,255,.6);border-radius:12px;padding:1px 10px;font-size:12px;color:#fff;text-decoration:none}
+    #panelnav{display:none}
     #tbl{font-size:11px}
     #tbl th,#tbl td{padding:5px 6px}
   }
 </style>
 </head>
 <body>
+<div id="topnav"><b>Restaurants</b><a href="guides/">Guides</a><a href="guides/europe-best-cities-spanish-food.html">Rankings</a><a href="guides/recipes.html">Recipes</a><a href="shops.html">Shops</a><a class="lang" href="guides/es/">ES</a></div>
 <div id="mapwrap">
 <div id="map"></div>
 <div id="panel">
   <h1>Spanish restaurants in Europe</h1>
   <div class="sub">1,946 restaurants &amp; tapas bars &middot; 41 countries &middot; ratings from Google Maps, checked 10 Sep 2026</div>
-  <div class="sub"><b>Restaurants</b> &middot; <a href="guides/">Guides</a> &middot; <a href="guides/europe-best-cities-spanish-food.html">Rankings</a> &middot; <a href="guides/recipes.html">Recipes</a> &middot; <a href="shops.html">Shops</a> &middot; <a href="guides/es/">ES</a></div>
+  <div class="sub" id="panelnav"><b>Restaurants</b> &middot; <a href="guides/">Guides</a> &middot; <a href="guides/europe-best-cities-spanish-food.html">Rankings</a> &middot; <a href="guides/recipes.html">Recipes</a> &middot; <a href="shops.html">Shops</a> &middot; <a href="guides/es/">ES</a></div>
   <input id="search" type="search" placeholder="Search by name, city or country&hellip;" autocomplete="off">
   <select id="country" aria-label="Country"></select>
   <div id="chips"></div>
