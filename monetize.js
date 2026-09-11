@@ -10,7 +10,7 @@
 window.MONETIZE = {
   viatorPid: "P00319561",
   viatorMcid: "42383",
-  adsenseClient: ""
+  adsenseClient: "ca-pub-8044414958800783"
 };
 (function () {
   var cfg = window.MONETIZE;
