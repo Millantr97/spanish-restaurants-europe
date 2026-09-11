@@ -1,6 +1,7 @@
-<?xml
-<url><loc>https://millantr97.github.io/spanish-restaurants-europe/index-es.html</loc><lastmod>2026-09-11</lastmod></url> version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://millantr97.github.io/spanish-restaurants-europe/index.html</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://millantr97.github.io/spanish-restaurants-europe/index-es.html</loc><lastmod>2026-09-11</lastmod></url>
   <url>
     <loc>https://millantr97.github.io/spanish-restaurants-europe/guides/amsterdam-best-spanish-restaurants.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://millantr97.github.io/spanish-restaurants-europe/guides/amsterdam-best-spanish-restaurants.html"/>
@@ -531,6 +532,23 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://millantr97.github.io/spanish-restaurants-europe/guides/es/london-mejores-restaurantes-espanoles.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://millantr97.github.io/spanish-restaurants-europe/guides/london-best-spanish-restaurants.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://millantr97.github.io/spanish-restaurants-europe/guides/london-best-spanish-restaurants.html"/>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+
+
+  <url>
+    <loc>https://millantr97.github.io/spanish-restaurants-europe/guides/es/luxembourg-mejores-restaurantes-espanoles.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://millantr97.github.io/spanish-restaurants-europe/guides/es/luxembourg-mejores-restaurantes-espanoles.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://millantr97.github.io/spanish-restaurants-europe/guides/luxembourg-best-spanish-restaurants.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://millantr97.github.io/spanish-restaurants-europe/guides/luxembourg-best-spanish-restaurants.html"/>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+
+  <url>
+    <loc>https://millantr97.github.io/spanish-restaurants-europe/guides/es/luxembourg-guia-ocasiones.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://millantr97.github.io/spanish-restaurants-europe/guides/es/luxembourg-guia-ocasiones.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://millantr97.github.io/spanish-restaurants-europe/guides/luxembourg-spanish-dining-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://millantr97.github.io/spanish-restaurants-europe/guides/luxembourg-spanish-dining-guide.html"/>
     <lastmod>2026-09-11</lastmod>
   </url>
   <url>
@@ -1098,6 +1116,21 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://millantr97.github.io/spanish-restaurants-europe/guides/london-spanish-dining-guide.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://millantr97.github.io/spanish-restaurants-europe/guides/es/london-guia-ocasiones.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://millantr97.github.io/spanish-restaurants-europe/guides/london-spanish-dining-guide.html"/>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+
+<url>
+    <loc>https://millantr97.github.io/spanish-restaurants-europe/guides/luxembourg-best-spanish-restaurants.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://millantr97.github.io/spanish-restaurants-europe/guides/luxembourg-best-spanish-restaurants.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://millantr97.github.io/spanish-restaurants-europe/guides/es/luxembourg-mejores-restaurantes-espanoles.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://millantr97.github.io/spanish-restaurants-europe/guides/luxembourg-best-spanish-restaurants.html"/>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+<url>
+    <loc>https://millantr97.github.io/spanish-restaurants-europe/guides/luxembourg-spanish-dining-guide.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://millantr97.github.io/spanish-restaurants-europe/guides/luxembourg-spanish-dining-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://millantr97.github.io/spanish-restaurants-europe/guides/es/luxembourg-guia-ocasiones.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://millantr97.github.io/spanish-restaurants-europe/guides/luxembourg-spanish-dining-guide.html"/>
     <lastmod>2026-09-11</lastmod>
   </url>
   <url>
