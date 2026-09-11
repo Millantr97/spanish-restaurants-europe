@@ -372,7 +372,7 @@ function refresh(){
   const keep = new Set(filteredList());
   const toAdd=[], toRemove=[];
   markers.forEach(m=>{ if(keep.has(m._p)) toAdd.push(m); else toRemove.push(m); });
-  cluster.removeLayers(toRemove); cluster.addLayers(toAdd);
+  cluster.clearLayers(); cluster.addLayers(toAdd);
   document.getElementById('count').textContent='Showing '+keep.size+' of '+DATA.places.length+' places';
   syncFavUI();
   updateTable();
