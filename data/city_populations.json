@@ -1,0 +1,302 @@
+{
+  "amsterdam": {
+    "boundary": "Gemeente Amsterdam",
+    "country_en": "Netherlands",
+    "country_es": "Netherlands",
+    "name_en": "Amsterdam",
+    "name_es": "Ámsterdam",
+    "population": 946447,
+    "source": "https://www.cbs.nl",
+    "year": "2026"
+  },
+  "antwerp": {
+    "boundary": "Stad Antwerpen",
+    "country_en": "Belgium",
+    "country_es": "Bélgica",
+    "name_en": "Antwerp",
+    "name_es": "Amberes",
+    "population": 570827,
+    "source": "https://statbel.fgov.be",
+    "year": "2024-2025"
+  },
+  "berlin": {
+    "boundary": "City-state of Berlin",
+    "country_en": "Germany",
+    "country_es": "Alemania",
+    "name_en": "Berlin",
+    "name_es": "Berlín",
+    "population": 3913644,
+    "source": "https://www.statistik-berlin-brandenburg.de",
+    "year": "2024-2025"
+  },
+  "bonn": {
+    "boundary": "Stadt Bonn",
+    "country_en": "Germany",
+    "country_es": "Alemania",
+    "name_en": "Bonn",
+    "name_es": "Bonn",
+    "population": 323587,
+    "source": "https://www.it.nrw",
+    "year": "2024-2025"
+  },
+  "brussels": {
+    "boundary": "Brussels-Capital Region",
+    "country_en": "Belgium",
+    "country_es": "Bélgica",
+    "name_en": "Brussels",
+    "name_es": "Bruselas",
+    "population": 1255834,
+    "source": "https://statbel.fgov.be",
+    "year": "2025"
+  },
+  "budapest": {
+    "boundary": "Budapest municipality",
+    "country_en": "Hungary",
+    "country_es": "Hungary",
+    "name_en": "Budapest",
+    "name_es": "Budapest",
+    "population": 1685209,
+    "source": "https://www.ksh.hu",
+    "year": "2025"
+  },
+  "cologne": {
+    "boundary": "Stadt Köln",
+    "country_en": "Germany",
+    "country_es": "Alemania",
+    "name_en": "Cologne",
+    "name_es": "Colonia",
+    "population": 1025523,
+    "source": "https://www.it.nrw",
+    "year": "2024-2025"
+  },
+  "copenhagen": {
+    "boundary": "Københavns Kommune (1 Jan 2026)",
+    "country_en": "Denmark",
+    "country_es": "Denmark",
+    "name_en": "Copenhagen",
+    "name_es": "Copenhague",
+    "population": 666678,
+    "source": "https://www.kk.dk/index.php/dagsordener-og-referater/Borgerrepr%C3%A6sentationen/m%C3%B8de-30042026/referat/punkt-4",
+    "year": "2026"
+  },
+  "dublin": {
+    "boundary": "Dublin City (census)",
+    "country_en": "Ireland",
+    "country_es": "Irlanda",
+    "name_en": "Dublin",
+    "name_es": "Dublín",
+    "population": 592713,
+    "source": "https://www.cso.ie/en/releasesandpublications/ep/p-cpr/censusofpopulation2022-preliminaryresults/",
+    "year": "2022"
+  },
+  "dusseldorf": {
+    "boundary": "Stadt Düsseldorf",
+    "country_en": "Germany",
+    "country_es": "Alemania",
+    "name_en": "Düsseldorf",
+    "name_es": "Düsseldorf",
+    "population": 619444,
+    "source": "https://www.it.nrw",
+    "year": "2024-2025"
+  },
+  "edinburgh": {
+    "boundary": "City of Edinburgh council area (NRS mid-2023)",
+    "country_en": "United Kingdom",
+    "country_es": "Reino Unido",
+    "name_en": "Edinburgh",
+    "name_es": "Edinburgh",
+    "population": 523250,
+    "source": "https://www.nrscotland.gov.uk",
+    "year": "2023"
+  },
+  "essen": {
+    "boundary": "Stadt Essen",
+    "country_en": "Germany",
+    "country_es": "Alemania",
+    "name_en": "Essen",
+    "name_es": "Essen",
+    "population": 573618,
+    "source": "https://www.it.nrw",
+    "year": "2024-2025"
+  },
+  "frankfurt": {
+    "boundary": "Stadt Frankfurt am Main (main residence)",
+    "country_en": "Germany",
+    "country_es": "Alemania",
+    "name_en": "Frankfurt",
+    "name_es": "Frankfurt",
+    "population": 781337,
+    "source": "https://statistikportal.frankfurt.de/statistik_aktuell/2026/fsa_2026_04.html",
+    "year": "2025"
+  },
+  "gothenburg": {
+    "boundary": "Göteborgs kommun",
+    "country_en": "Sweden",
+    "country_es": "Suecia",
+    "name_en": "Gothenburg",
+    "name_es": "Gothenburg",
+    "population": 613278,
+    "source": "https://www.kommunatlas.se/befolkning/goteborg/",
+    "year": "2025"
+  },
+  "hamburg": {
+    "boundary": "City-state of Hamburg",
+    "country_en": "Germany",
+    "country_es": "Alemania",
+    "name_en": "Hamburg",
+    "name_es": "Hamburg",
+    "population": 1869786,
+    "source": "https://www.statistik-nord.de",
+    "year": "2024-2025"
+  },
+  "hanover": {
+    "boundary": "Landeshauptstadt Hannover (main residence)",
+    "country_en": "Germany",
+    "country_es": "Alemania",
+    "name_en": "Hanover",
+    "name_es": "Hannover",
+    "population": 558767,
+    "source": "https://www.hannover.de/content/download/1037194/file/Datenblatt_Bev%C3%B6lkerungsbestand_Dezember2024.pdf",
+    "year": "2025"
+  },
+  "leeds": {
+    "boundary": "Leeds metropolitan district (ONS mid-2023)",
+    "country_en": "United Kingdom",
+    "country_es": "Reino Unido",
+    "name_en": "Leeds",
+    "name_es": "Leeds",
+    "population": 829417,
+    "source": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates",
+    "year": "2023"
+  },
+  "lisbon": {
+    "boundary": "Município de Lisboa (census)",
+    "country_en": "Portugal",
+    "country_es": "Portugal",
+    "name_en": "Lisbon",
+    "name_es": "Lisboa",
+    "population": 545796,
+    "source": "https://www.ine.pt",
+    "year": "2021"
+  },
+  "liverpool": {
+    "boundary": "Liverpool metropolitan district (ONS mid-2023)",
+    "country_en": "United Kingdom",
+    "country_es": "Reino Unido",
+    "name_en": "Liverpool",
+    "name_es": "Liverpool",
+    "population": 504932,
+    "source": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates",
+    "year": "2023"
+  },
+  "london": {
+    "boundary": "Greater London (ONS mid-2024 estimate)",
+    "country_en": "United Kingdom",
+    "country_es": "Reino Unido",
+    "name_en": "London",
+    "name_es": "Londres",
+    "population": 9089736,
+    "source": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates",
+    "year": "2024"
+  },
+  "lyon": {
+    "boundary": "Commune de Lyon",
+    "country_en": "France",
+    "country_es": "Francia",
+    "name_en": "Lyon",
+    "name_es": "Lyon",
+    "population": 519127,
+    "source": "https://www.insee.fr",
+    "year": "2023"
+  },
+  "manchester": {
+    "boundary": "City of Manchester (ONS mid-2023)",
+    "country_en": "United Kingdom",
+    "country_es": "Reino Unido",
+    "name_en": "Manchester",
+    "name_es": "Manchester",
+    "population": 627000,
+    "source": "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates",
+    "year": "2023"
+  },
+  "milan": {
+    "boundary": "Comune di Milano",
+    "country_en": "Italy",
+    "country_es": "Italia",
+    "name_en": "Milan",
+    "name_es": "Milán",
+    "population": 1362863,
+    "source": "https://www.istat.it",
+    "year": "2024"
+  },
+  "munich": {
+    "boundary": "Landeshauptstadt München",
+    "country_en": "Germany",
+    "country_es": "Alemania",
+    "name_en": "Munich",
+    "name_es": "Múnich",
+    "population": 1505036,
+    "source": "https://stadt.muenchen.de",
+    "year": "2024-2025"
+  },
+  "paris": {
+    "boundary": "Commune de Paris",
+    "country_en": "France",
+    "country_es": "Francia",
+    "name_en": "Paris",
+    "name_es": "París",
+    "population": 2047602,
+    "source": "https://www.insee.fr",
+    "year": "2023"
+  },
+  "porto": {
+    "boundary": "Município do Porto",
+    "country_en": "Portugal",
+    "country_es": "Portugal",
+    "name_en": "Porto",
+    "name_es": "Oporto",
+    "population": 231800,
+    "source": "https://www.ine.pt",
+    "year": "2021"
+  },
+  "stockholm": {
+    "boundary": "Stockholms kommun",
+    "country_en": "Sweden",
+    "country_es": "Suecia",
+    "name_en": "Stockholm",
+    "name_es": "Estocolmo",
+    "population": 1000962,
+    "source": "https://www.scb.se",
+    "year": "2025"
+  },
+  "toulouse": {
+    "boundary": "Commune de Toulouse",
+    "country_en": "France",
+    "country_es": "Francia",
+    "name_en": "Toulouse",
+    "name_es": "Toulouse",
+    "population": 514819,
+    "source": "https://www.insee.fr",
+    "year": "2023"
+  },
+  "vienna": {
+    "boundary": "Stadt Wien",
+    "country_en": "Austria",
+    "country_es": "Austria",
+    "name_en": "Vienna",
+    "name_es": "Viena",
+    "population": 2044366,
+    "source": "https://www.statistik.at",
+    "year": "2025"
+  },
+  "zurich": {
+    "boundary": "Stadt Zürich",
+    "country_en": "Switzerland",
+    "country_es": "Suiza",
+    "name_en": "Zurich",
+    "name_es": "Zúrich",
+    "population": 452421,
+    "source": "https://www.stadt-zuerich.ch/de/aktuell/medienmitteilungen/2026/02/bevoelkerungswachstum-weniger-vorschulkinder.html",
+    "year": "2025"
+  }
+}
