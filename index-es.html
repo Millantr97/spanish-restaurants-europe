@@ -2,19 +2,19 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Restaurantes españoles en Europa: map of 4,042 restaurants and tapas bars</title>
+<title>Restaurantes españoles en Europa: mapa de 4.042 restaurantes y bares de tapas</title>
 <link rel="canonical" href="https://millantr97.github.io/spanish-restaurants-europe/">
-<meta property="og:title" content="Restaurantes españoles en Europa: map of 4,042 restaurants and tapas bars">
-<meta property="og:description" content="Map of 4,042 Spanish restaurants and tapas bars across Europe - filter by dish, price and city, with guides, rankings, recipes and Spanish shops.">
+<meta property="og:title" content="Restaurantes españoles en Europa: mapa de 4.042 restaurantes y bares de tapas">
+<meta property="og:description" content="Mapa de 4.042 restaurantes españoles y bares de tapas en Europa, con filtros por plato, precio y ciudad, además de guías, rankings, recetas y tiendas españolas.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://millantr97.github.io/spanish-restaurants-europe/">
 <meta property="og:site_name" content="Spanish Restaurants in Europe">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://millantr97.github.io/spanish-restaurants-europe/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Spanish Restaurants in Europe", "url": "https://millantr97.github.io/spanish-restaurants-europe/", "inLanguage": "en", "description": "Map of 4,042 Spanish restaurants and tapas bars across Europe - filter by dish, price and city, with guides, rankings, recipes and Spanish shops."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Spanish Restaurants in Europe", "url": "https://millantr97.github.io/spanish-restaurants-europe/", "inLanguage": "es", "description": "Mapa de 4.042 restaurantes españoles y bares de tapas en Europa, con filtros por plato, precio y ciudad, además de guías, rankings, recetas y tiendas españolas."}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Map of 4,042 Spanish restaurants and tapas bars across Europe - filter by dish, price and city, with guides, rankings, recipes and Spanish shops.">
+<meta name="description" content="Mapa de 4.042 restaurantes españoles y bares de tapas en Europa, con filtros por plato, precio y ciudad, además de guías, rankings, recetas y tiendas españolas.">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
@@ -225,7 +225,7 @@ function distKm(a,b,c,d){ const R=6371, dLa=(c-a)*Math.PI/180, dLo=(d-b)*Math.PI
   return 2*R*Math.asin(Math.sqrt(h)); }
 function fmtDist(km){ return km<10 ? km.toFixed(1)+' km' : Math.round(km)+' km'; }
 const markers = [];
-{ const el=document.getElementById('subcount'); if(el){ const cs=new Set(DATA.places.map(p=>p.country)); el.innerHTML=DATA.places.length.toLocaleString('en-GB')+' restaurantes y bares de tapas &middot; '+cs.size+' países &middot; valoraciones de Google Maps, revisadas el 11 Sep 2026'; } }
+{ const el=document.getElementById('subcount'); if(el){ const cs=new Set(DATA.places.map(p=>p.country)); el.innerHTML=DATA.places.length.toLocaleString('es-ES')+' restaurantes y bares de tapas &middot; '+cs.size+' países &middot; valoraciones de Google Maps, revisadas el 11 sep 2026'; } }
 let estrellaSel=false;
 let favOnly = initialParams.get('f')==='1';
 let favs = new Set();
