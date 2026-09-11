@@ -167,7 +167,7 @@ th_name:'Tienda',th_city:'Ciudad',th_country:'País',th_rating:'Valoración',th_
 delivers:'Envía a',visit:'Visitar tienda',directions:'Maps',website:'Web',anycountry:'Todos los países',alcohol:'Vende alcohol',unverified:'Sin verificar',
 footernote:'Datos verificados el 10 sep 2026 en la web de cada tienda y en Google Maps. Los precios y condiciones de envío cambian: confirma siempre en la web de la tienda antes de pedir. Las candidatas sin verificar son negocios que parecen españoles pero aún necesitan confirmación. Web hermana: restaurantes españoles en Europa (index.html).'}
 };
-let LANG='en', MODE='near', userLoc=null, sortBy='name';
+let LANG=new URLSearchParams(location.search).get('lang')==='es'?'es':'en', MODE='near', userLoc=null, sortBy='name';
 const t=k=>I18N[LANG][k]||k;
 const TN=k=>(LANG==='es'?TAGNAMES_ES:TAGNAMES)[k]||k;
 const KN=k=>(LANG==='es'?KINDNAMES_ES:KINDNAMES)[k]||k;
