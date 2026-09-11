@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Spanish restaurants in Europe: map of 4,042 restaurants and tapas bars</title>
+<title>Restaurantes españoles en Europa: map of 4,042 restaurants and tapas bars</title>
 <link rel="canonical" href="https://millantr97.github.io/spanish-restaurants-europe/">
-<meta property="og:title" content="Spanish restaurants in Europe: map of 4,042 restaurants and tapas bars">
+<meta property="og:title" content="Restaurantes españoles en Europa: map of 4,042 restaurants and tapas bars">
 <meta property="og:description" content="Map of 4,042 Spanish restaurants and tapas bars across Europe - filter by dish, price and city, with guides, rankings, recipes and Spanish shops.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://millantr97.github.io/spanish-restaurants-europe/">
@@ -126,31 +126,31 @@
 <link rel="alternate" hreflang="x-default" href="https://millantr97.github.io/spanish-restaurants-europe/index.html">
 </head>
 <body>
-<div id="topnav"><b>Restaurants</b><a href="guides/">Guides</a><a href="guides/europe-best-cities-spanish-food.html">Rankings</a><a href="guides/recipes.html">Recipes</a><a href="shops.html">Shops</a><span class="langtoggle" aria-label="Language"><a class="on" href="index.html">EN</a><a id="lang-es" href="index-es.html">ES</a></span></div>
+<div id="topnav"><b>Restaurantes</b><a href="guides/es/">Guías</a><a href="guides/es/europa-mejores-ciudades-comida-espanola.html">Clasificaciones</a><a href="guides/es/recetas.html">Recetas</a><a href="shops.html?lang=es">Tiendas</a><span class="langtoggle" aria-label="Idioma"><a id="lang-en" href="index.html">EN</a><a class="on" href="index-es.html">ES</a></span></div>
 <div id="mapwrap">
 <div id="map"></div>
 <div id="panel">
-  <h1>Spanish restaurants in Europe</h1>
-  <div class="sub" id="subcount">1,946 restaurants &amp; tapas bars &middot; 39 countries &middot; ratings from Google Maps, checked 11 Sep 2026</div>
-  <input id="search" type="search" placeholder="Search by name, city or country&hellip;" autocomplete="off">
-  <select id="country" aria-label="Country"></select>
+  <h1>Restaurantes españoles en Europa</h1>
+  <div class="sub" id="subcount">1,946 restaurantes y bares de tapas &middot; 39 países &middot; valoraciones de Google Maps, revisadas el 11 Sep 2026</div>
+  <input id="search" type="search" placeholder="Busca por nombre, ciudad o país&hellip;" autocomplete="off">
+  <select id="country" aria-label="País"></select>
   <div id="chips"></div>
   <div id="ratewrap">
-    <label for="minrating">Min. Google rating: <output id="rateval" for="minrating">Any</output></label>
-    <input id="minrating" type="range" min="0" max="5" step="0.1" value="0" aria-label="Minimum Google rating">
+    <label for="minrating">Valoración mínima en Google: <output id="rateval" for="minrating">Cualquiera</output></label>
+    <input id="minrating" type="range" min="0" max="5" step="0.1" value="0" aria-label="Valoración mínima en Google">
   </div>
   <div id="pricewrap" hidden>
-    <div class="pw-label">Typical food spend per person <span class="pw-src">Reported per-person range where available; otherwise a menu-based estimate. Drinks and service excluded. Checked 11 Sep 2026; not guaranteed.</span></div>
+    <div class="pw-label">Gasto habitual en comida por persona <span class="pw-src">Rango por persona cuando está disponible; en caso contrario, estimación basada en la carta. Bebidas y servicio excluidos. Revisado el 11 sep 2026; no garantizado.</span></div>
     <div id="pricechips"></div>
   </div>
   <div id="estrellawrap" hidden>
-    <div class="pw-label">Drinks</div>
+    <div class="pw-label">Bebidas</div>
     <div id="estrellachips"><span id="estrellachip" class="chip" title="Venues whose menu or drinks list confirms Estrella Galicia">&#127866; Estrella Galicia</span></div>
   </div>
-  <div id="favwrap"><span id="favchip" class="chip" title="Places you saved on this device">&#9825; Favorites</span></div>
-  <div id="listbar" hidden><b>Shared list</b> - <span id="listcount"></span> places. <a id="listsave">Save all to favorites</a> &middot; <a id="listexit">Show everything</a></div>
-  <button id="geo" type="button">&#128205; Near me</button>
-  <button id="share" type="button">&#128279; Copy share link</button>
+  <div id="favwrap"><span id="favchip" class="chip" title="Sitios guardados en este dispositivo">&#9825; Favoritos</span></div>
+  <div id="listbar" hidden><b>Lista compartida</b> - <span id="listcount"></span> sitios. <a id="listsave">Guardar todos en favoritos</a> &middot; <a id="listexit">Mostrar todo</a></div>
+  <button id="geo" type="button">&#128205; Cerca de mí</button>
+  <button id="share" type="button">&#128279; Copiar enlace</button>
   <div id="sharestatus" class="geostatus" role="status"></div>
   <div id="geostatus" class="geostatus" role="status"></div>
   <div><span id="count"></span><span id="clear">Clear filters</span></div>
@@ -180,7 +180,7 @@
   </table></div>
 </div>
 <div id="comments">
-  <h2>Comments <span id="cplace"></span></h2>
+  <h2>Comentarios <span id="cplace"></span></h2>
   <div class="hint" id="chint">Pick a restaurant (map marker or table row) to read and leave comments.</div>
   <div id="comments-setup" hidden></div>
   <div id="disqus-wrap"></div>
@@ -225,7 +225,7 @@ function distKm(a,b,c,d){ const R=6371, dLa=(c-a)*Math.PI/180, dLo=(d-b)*Math.PI
   return 2*R*Math.asin(Math.sqrt(h)); }
 function fmtDist(km){ return km<10 ? km.toFixed(1)+' km' : Math.round(km)+' km'; }
 const markers = [];
-{ const el=document.getElementById('subcount'); if(el){ const cs=new Set(DATA.places.map(p=>p.country)); el.innerHTML=DATA.places.length.toLocaleString('en-GB')+' restaurants &amp; tapas bars &middot; '+cs.size+' countries &middot; ratings from Google Maps, checked 11 Sep 2026'; } }
+{ const el=document.getElementById('subcount'); if(el){ const cs=new Set(DATA.places.map(p=>p.country)); el.innerHTML=DATA.places.length.toLocaleString('en-GB')+' restaurantes y bares de tapas &middot; '+cs.size+' países &middot; valoraciones de Google Maps, revisadas el 11 Sep 2026'; } }
 let estrellaSel=false;
 let favOnly = initialParams.get('f')==='1';
 let favs = new Set();
@@ -235,7 +235,7 @@ let listUids = (initialParams.get('list')||'').split(',').filter(u=>/^[a-z0-9-]+
 let listActive = listUids.length>0;
 let listSet = new Set(listUids);
 function toggleFav(uid){ if(favs.has(uid)) favs.delete(uid); else favs.add(uid); saveFavs(); syncFavUI(); }
-window.__fav=function(uid,el){ toggleFav(uid); if(el) el.innerHTML = favs.has(uid)?'&#9829; Saved':'&#9825; Save to favorites'; };
+window.__fav=function(uid,el){ toggleFav(uid); if(el) el.innerHTML = favs.has(uid)?'&#9829; Guardado':'&#9825; Guardar en favoritos'; };
 function syncFavUI(){
   const el=document.getElementById('favchip');
   el.innerHTML=(favs.size?'&#9829;':'&#9825;')+' Favorites ('+favs.size+')';
@@ -265,7 +265,7 @@ function estrellaBar(){
 }
 function countryBar(){
   const s=document.getElementById('country'); s.innerHTML='';
-  const all=document.createElement('option'); all.value=''; all.textContent='All countries ('+DATA.places.length+')'; s.appendChild(all);
+  const all=document.createElement('option'); all.value=''; all.textContent='Todos los países ('+DATA.places.length+')'; s.appendChild(all);
   COUNTRIES.forEach(c=>{
     const o=document.createElement('option'); o.value=c; o.textContent=c+' ('+DATA.places.filter(p=>p.country===c).length+')'; s.appendChild(o);
   });
@@ -308,12 +308,12 @@ function popup(p){
     });
   }
   return '<div class="popup"><b>'+esc(p.name)+'</b><br><span class="cat">'+esc(p.cat)+' &middot; '+esc(p.city)+', '+esc(p.country)+'</span><br>'+esc(p.addr)+
-    '<br>&#9733; '+p.rating+(p.rcount==null?'':' ('+p.rcount+' ratings)')+(p.price?' &middot; '+priceDisplay(p):'')+' &middot; <a href="'+p.gmaps+'" target="_blank">Google Maps</a>'+
+    '<br>&#9733; '+p.rating+(p.rcount==null?'':' ('+p.rcount+' reseñas)')+(p.price?' &middot; '+priceDisplay(p):'')+' &middot; <a href="'+p.gmaps+'" target="_blank">Google Maps</a>'+
     (p.price?'<br>Price source: '+priceProvenance(p):'')+
-    (p.menu?'<br>Menu: <a href="'+p.menu+'" target="_blank" rel="noopener">'+new URL(p.menu).hostname+'</a> (checked '+(p.menuChecked||'10 Sep 2026')+')':'')+
-    (p.estrella?'<br>&#127866; Estrella Galicia: <b>'+p.estrella+'</b>'+(p.estrellaSource?' &middot; <a href="'+p.estrellaSource+'" target="_blank" rel="noopener">source</a>':'')+(p.estrellaChecked?' (checked '+p.estrellaChecked+')':''):'')+
+    (p.menu?'<br>Menu: <a href="'+p.menu+'" target="_blank" rel="noopener">'+new URL(p.menu).hostname+'</a> (revisado el '+(p.menuChecked||'10 Sep 2026')+')':'')+
+    (p.estrella?'<br>&#127866; Estrella Galicia: <b>'+p.estrella+'</b>'+(p.estrellaSource?' &middot; <a href="'+p.estrellaSource+'" target="_blank" rel="noopener">source</a>':'')+(p.estrellaChecked?' (revisado el '+p.estrellaChecked+')':''):'')+
     (p.notes?'<br><span class="cat">'+esc(p.notes)+'</span>':'')+
-    '<br><a href="#" onclick="window.__fav(\''+p.uid+'\',this);return false;">'+(favs.has(p.uid)?'&#9829; Saved':'&#9825; Save to favorites')+'</a> &middot; <a href="#comments" onclick="window.__pick('+p._i+');return false;">&#128172; Comments</a>'+
+    '<br><a href="#" onclick="window.__fav(\''+p.uid+'\',this);return false;">'+(favs.has(p.uid)?'&#9829; Guardado':'&#9825; Guardar en favoritos')+'</a> &middot; <a href="#comments" onclick="window.__pick('+p._i+');return false;">&#128172; Comments</a>'+
     (rows?'<table>'+rows+'</table>':'')+'</div>';
 }
 DATA.places.forEach((p,i)=>{
@@ -342,14 +342,14 @@ function currentIdx(){ return DATA.dishes.map((d,i)=>selected.has(d)?i:-1).filte
 function filteredList(){ const idx=currentIdx(); return DATA.places.filter(p=>matches(p,idx)); }
 function inView(p){ return map.getBounds().contains([p.lat,p.lng]); }
 function renderTable(list){
-  const cols=['','Name','Category','City','Country'];
-  if(DATA.places.some(p=>p.price)) cols.push('Typical price');
-  if(userLoc) cols.push('Distance');
-  cols.push('Rating','Ratings','Links');
+  const cols=['','Nombre','Categoría','Ciudad','País'];
+  if(DATA.places.some(p=>p.price)) cols.push('Precio habitual');
+  if(userLoc) cols.push('Distancia');
+  cols.push('Valoración','Reseñas','Enlaces');
   document.getElementById('thead-row').innerHTML=cols.map(c=>'<th>'+c+'</th>').join('');
   const tb=document.getElementById('tbody'); tb.innerHTML='';
   if(!list.length){
-    tb.innerHTML='<tr><td colspan="'+cols.length+'" id="empty">No places in this map area match the current filters.</td></tr>';
+    tb.innerHTML='<tr><td colspan="'+cols.length+'" id="empty">Ningún sitio en esta zona del mapa coincide con los filtros actuales.</td></tr>';
     return;
   }
   const sorted=list.slice().sort((a,b)=>{
@@ -380,7 +380,7 @@ function renderTable(list){
 }
 function updateTable(){
   const list = filteredList().filter(inView);
-  document.getElementById('tcount').textContent='('+list.length+' in view)';
+  document.getElementById('tcount').textContent='('+list.length+' visibles)';
   renderTable(list);
 }
 function refresh(){
@@ -391,7 +391,7 @@ function refresh(){
   const toAdd=[], toRemove=[];
   markers.forEach(m=>{ if(keep.has(m._p)) toAdd.push(m); else toRemove.push(m); });
   cluster.clearLayers(); cluster.addLayers(toAdd);
-  document.getElementById('count').textContent='Showing '+keep.size+' of '+DATA.places.length+' places';
+  document.getElementById('count').textContent='Mostrando '+keep.size+' de '+DATA.places.length+' sitios';
   syncFavUI();
   updateTable();
   syncUrl();
@@ -412,7 +412,7 @@ function stateUrl(forShare){
 }
 function syncUrl(){ clearTimeout(stateTimer); stateTimer=setTimeout(()=>history.replaceState(null,'',stateUrl()),80); }
 map.on('moveend',()=>{ updateTable(); syncUrl(); });
-function rateLabel(v){ return v<=0 ? 'Any' : v.toFixed(1)+'+'; }
+function rateLabel(v){ return v<=0 ? 'Cualquiera' : v.toFixed(1)+'+'; }
 const slider=document.getElementById('minrating'), rateval=document.getElementById('rateval');
 slider.value=String(minRating); rateval.textContent=rateLabel(minRating); document.getElementById('search').value=initialSearch;
 slider.oninput=(e)=>{ minRating=parseFloat(e.target.value)||0; rateval.textContent=rateLabel(minRating); refresh(); };
@@ -423,7 +423,7 @@ document.getElementById('search').oninput=(e)=>{
 };
 document.getElementById('clear').onclick=()=>{
   selected.clear(); priceSel.clear(); estrellaSel=false; favOnly=false; minRating=0; nameQuery=''; countrySel='';
-  slider.value='0'; rateval.textContent='Any';
+  slider.value='0'; rateval.textContent='Cualquiera';
   document.getElementById('search').value='';
   document.getElementById('country').value='';
   sortBy='rating'; syncSortUI();
@@ -440,28 +440,28 @@ const geoBtn=document.getElementById('geo'), geoStatus=document.getElementById('
 function geoMsg(t,err){ geoStatus.textContent=t; geoStatus.className='geostatus'+(err?' err':''); }
 geoBtn.onclick=()=>{
   if(userLoc){ map.flyTo([userLoc.lat,userLoc.lng],13,{duration:0.8}); return; }
-  if(!navigator.geolocation){ geoMsg('Geolocation is not supported by this browser.',true); return; }
-  geoBtn.disabled=true; geoMsg('Locating...');
+  if(!navigator.geolocation){ geoMsg('Este navegador no admite geolocalización.',true); return; }
+  geoBtn.disabled=true; geoMsg('Buscando ubicación...');
   navigator.geolocation.getCurrentPosition(pos=>{
     userLoc={lat:pos.coords.latitude,lng:pos.coords.longitude};
     if(userMarker){ map.removeLayer(userMarker); map.removeLayer(userCircle); }
     userCircle=L.circle([userLoc.lat,userLoc.lng],{radius:pos.coords.accuracy||50,color:'#1a73e8',weight:1,fillColor:'#1a73e8',fillOpacity:0.12}).addTo(map);
     userMarker=L.circleMarker([userLoc.lat,userLoc.lng],{radius:8,color:'#fff',weight:2,fillColor:'#1a73e8',fillOpacity:1}).addTo(map);
-    userMarker.bindPopup('<b>You are here</b>');
-    geoBtn.disabled=false; geoBtn.classList.add('on'); geoBtn.innerHTML='&#128205; Center on me';
-    geoMsg('Location found - table now shows distances.');
+    userMarker.bindPopup('<b>Estás aquí</b>');
+    geoBtn.disabled=false; geoBtn.classList.add('on'); geoBtn.innerHTML='&#128205; Centrar en mí';
+    geoMsg('Ubicación encontrada - la tabla muestra ahora las distancias.');
     sortBy='distance'; syncSortUI();
     map.flyTo([userLoc.lat,userLoc.lng],13,{duration:0.8});
     refresh();
   },err=>{
     geoBtn.disabled=false;
-    geoMsg(err.code===1?'Location blocked - allow location access in your browser, then try again.':'Could not get your location - try again.',true);
+    geoMsg(err.code===1?'Ubicación bloqueada - permite el acceso en el navegador y vuelve a intentarlo.':'No se pudo obtener tu ubicación - vuelve a intentarlo.',true);
   },{enableHighAccuracy:false,timeout:10000,maximumAge:300000});
 };
 function selectPlace(p){
   currentPlace=p; syncUrl();
   document.getElementById('cplace').textContent='- '+p.name+' ('+p.city+')';
-  document.getElementById('chint').textContent='Comments for '+p.name+', powered by Disqus - sign in with Disqus, Google, Facebook or Apple to comment.';
+  document.getElementById('chint').textContent='Comentarios de '+p.name+', mediante Disqus - inicia sesión con Disqus, Google, Facebook o Apple para comentar.';
   loadDisqus(p);
 }
 function loadDisqus(p){
@@ -480,8 +480,8 @@ function loadDisqus(p){
 }
 document.getElementById('share').onclick=async()=>{
   const status=document.getElementById('sharestatus'); const url=stateUrl(true).toString();
-  try { await navigator.clipboard.writeText(url); status.textContent='Share link copied.'; }
-  catch(e) { status.textContent='Copy this link: '+url; }
+  try { await navigator.clipboard.writeText(url); status.textContent='Enlace copiado.'; }
+  catch(e) { status.textContent='Copia este enlace: '+url; }
 };
 countryBar();
 syncSortUI();
@@ -491,7 +491,7 @@ if(restoredSlug){ const restored=DATA.places.find(p=>p.uid===restoredSlug); if(r
 syncUrl();
 </script>
 <script>
-(function(){const a=document.getElementById('lang-es');if(a)a.href='index-es.html'+location.search+location.hash})();
+(function(){const a=document.getElementById('lang-en');if(a)a.href='index.html'+location.search+location.hash})();
 </script>
 </body>
 </html>

@@ -6,7 +6,12 @@ nav.top{background:var(--wine);color:#fff;padding:10px 16px;display:flex;flex-wr
 nav.top a{color:#fff;text-decoration:none;font-weight:600}
 nav.top a:hover{text-decoration:underline}
 nav.top .brand{font-weight:800}
-nav.top .lang{margin-left:auto;border:1px solid rgba(255,255,255,.6);border-radius:12px;padding:1px 10px;font-size:12px}
+nav.top .langtoggle{margin-left:auto;display:inline-flex}
+nav.top .langtoggle a{font-size:11px;line-height:1.5;padding:3px 9px;border:1px solid rgba(255,255,255,.75);background:#fff;color:var(--wine);text-decoration:none}
+nav.top .langtoggle a:first-child{border-radius:8px 0 0 8px;border-right:none}
+nav.top .langtoggle a:last-child{border-radius:0 8px 8px 0}
+nav.top .langtoggle a.on{background:var(--wine);color:#fff}
+nav.top .langtoggle a:hover{text-decoration:none;filter:brightness(.96)}
 main{max-width:780px;margin:0 auto;padding:24px 16px 64px;background:#fff}
 h1{color:var(--wine);font-size:28px;line-height:1.25;margin:8px 0 4px}
 h2{color:var(--wine);font-size:21px;margin:34px 0 8px}

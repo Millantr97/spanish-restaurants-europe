@@ -99,7 +99,7 @@
 </style>
 </head>
 <body>
-<div id="topnav"><a href="index.html"><span data-i18n="nav_map"></span></a><a href="guides/"><span data-i18n="nav_guides"></span></a><a href="guides/europe-best-cities-spanish-food.html"><span data-i18n="nav_rankings"></span></a><a href="guides/recipes.html"><span data-i18n="nav_recipes"></span></a><b><span data-i18n="nav_shops"></span></b></div>
+<div id="topnav"><a id="nav-map" href="index.html"><span data-i18n="nav_map"></span></a><a id="nav-guides" href="guides/"><span data-i18n="nav_guides"></span></a><a id="nav-rankings" href="guides/europe-best-cities-spanish-food.html"><span data-i18n="nav_rankings"></span></a><a id="nav-recipes" href="guides/recipes.html"><span data-i18n="nav_recipes"></span></a><b><span data-i18n="nav_shops"></span></b></div>
 <div id="mapwrap">
 <div id="map"></div>
 <div id="langtoggle"><button id="lang-en" class="on">EN</button><button id="lang-es">ES</button></div>
@@ -175,6 +175,12 @@ const CN=c=>(LANG==='es'?COUNTRIES_ES:COUNTRIES)[c]||c;
 const $=id=>document.getElementById(id);
 function applyI18n(){
   document.documentElement.lang=LANG;
+  $('lang-en').classList.toggle('on',LANG==='en'); $('lang-es').classList.toggle('on',LANG==='es');
+  $('nav-map').href=LANG==='es'?'index-es.html':'index.html';
+  $('nav-guides').href=LANG==='es'?'guides/es/':'guides/';
+  $('nav-rankings').href=LANG==='es'?'guides/es/europa-mejores-ciudades-comida-espanola.html':'guides/europe-best-cities-spanish-food.html';
+  $('nav-recipes').href=LANG==='es'?'guides/es/recetas.html':'guides/recipes.html';
+  const u=new URL(location.href); if(LANG==='es')u.searchParams.set('lang','es');else u.searchParams.delete('lang'); history.replaceState(null,'',u);
   document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=t(el.dataset.i18n)});
   document.querySelectorAll('[data-i18n-ph]').forEach(el=>{el.placeholder=t(el.dataset.i18nPh)});
   buildCountrySelects(); buildChips(); buildThead(); updateCount(); updateTable();
