@@ -72,13 +72,12 @@
   body.mode-deliv #panel{position:static;max-width:none;max-height:none;border-radius:0;box-shadow:none;border-bottom:1px solid #eee}
   body.mode-deliv #legend{display:none}
   body.mode-deliv #langtoggle{top:14px}
-  #topnav{display:none}
-  @media(max-width:700px){
   #topnav{display:flex;flex-wrap:wrap;gap:14px;align-items:center;background:#7B1B2C;color:#fff;
-    padding:10px 14px;font-size:14px}
+    padding:10px 16px;font-size:14px}
   #topnav a{color:#fff;text-decoration:none;font-weight:600}
+  #topnav a:hover{text-decoration:underline}
   #topnav b{font-weight:800;color:#fff}
-  #panelnav{display:none}
+  @media(max-width:700px){
   #mapwrap{display:flex;flex-direction:column;height:auto;min-height:0}
   #map{order:1;height:52vh;min-height:340px;flex:none}
   #panel{order:2;position:static;max-width:none;max-height:none;overflow:visible;border-radius:0;box-shadow:none;border-bottom:1px solid #e3e3e3}
@@ -97,7 +96,6 @@
 <div id="panel">
   <h1 data-i18n="title">Spanish shops in Europe</h1>
   <div class="sub" data-i18n="subtitle"></div>
-  <div id="panelnav" style="margin:2px 0 4px;font-size:11px;line-height:1.9"><a class="navlink" href="index.html"><span data-i18n="nav_map"></span></a> &middot; <a class="navlink" href="guides/"><span data-i18n="nav_guides"></span></a> &middot; <a class="navlink" href="guides/europe-best-cities-spanish-food.html"><span data-i18n="nav_rankings"></span></a> &middot; <a class="navlink" href="guides/recipes.html"><span data-i18n="nav_recipes"></span></a> &middot; <b style="color:#7B1B2C"><span data-i18n="nav_shops"></span></b></div>
   <div id="modetabs">
     <span class="modetab on" id="tab-near" data-i18n="tab_near"></span>
     <span class="modetab" id="tab-deliv" data-i18n="tab_deliv"></span>

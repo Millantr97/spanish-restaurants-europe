@@ -82,7 +82,17 @@
   #comments-setup{border:1px dashed #c9a0a8;background:#fdf6f7;border-radius:8px;padding:14px;font-size:12px;color:#555;line-height:1.5}
   #comments-setup b{color:#7B1B2C}
   #comments-setup code{background:#f0e4e6;padding:1px 5px;border-radius:4px;font-size:11px}
-  #topnav{display:none}
+  .fav{cursor:pointer;color:#b02a37;font-size:14px;user-select:none}
+  #favwrap{margin-top:8px}
+  #listbar{margin-top:8px;border:1px solid #c9a0a8;background:#fdf6f7;border-radius:8px;padding:8px 10px;font-size:12px;color:#555}
+  #listbar b{color:#7B1B2C}
+  #listbar a{color:#0563C1;cursor:pointer;text-decoration:underline}
+  #topnav{display:flex;flex-wrap:wrap;gap:14px;align-items:center;background:#7B1B2C;color:#fff;
+    padding:10px 16px;font-size:14px}
+  #topnav a{color:#fff;text-decoration:none;font-weight:600}
+  #topnav a:hover{text-decoration:underline}
+  #topnav b{font-weight:800;color:#fff}
+  #topnav .lang{margin-left:auto;border:1px solid rgba(255,255,255,.6);border-radius:12px;padding:1px 10px;font-size:12px;color:#fff;text-decoration:none}
   @media (max-width:600px){
     /* Mobile: map first, then filters below it (no overlay), then the table */
     #mapwrap{display:flex;flex-direction:column;height:auto;min-height:0}
@@ -90,12 +100,7 @@
     #panel{order:2;position:static;max-width:none;max-height:none;overflow:visible;
       border-radius:0;box-shadow:none;border-bottom:1px solid #e3e3e3;padding:12px 14px}
     #legend{top:8px;bottom:auto;right:8px;max-width:200px;padding:6px 10px;font-size:10px}
-    #topnav{display:flex;flex-wrap:wrap;gap:14px;align-items:center;background:#7B1B2C;color:#fff;
-      padding:10px 14px;font-size:14px}
-    #topnav a{color:#fff;text-decoration:none;font-weight:600}
-    #topnav b{font-weight:800;color:#fff}
-    #topnav .lang{margin-left:auto;border:1px solid rgba(255,255,255,.6);border-radius:12px;padding:1px 10px;font-size:12px;color:#fff;text-decoration:none}
-    #panelnav{display:none}
+
     #tbl{font-size:11px}
     #tbl th,#tbl td{padding:5px 6px}
   }
@@ -108,7 +113,6 @@
 <div id="panel">
   <h1>Spanish restaurants in Europe</h1>
   <div class="sub" id="subcount">1,946 restaurants &amp; tapas bars &middot; 41 countries &middot; ratings from Google Maps, checked 10 Sep 2026</div>
-  <div class="sub" id="panelnav"><b>Restaurants</b> &middot; <a href="guides/">Guides</a> &middot; <a href="guides/europe-best-cities-spanish-food.html">Rankings</a> &middot; <a href="guides/recipes.html">Recipes</a> &middot; <a href="shops.html">Shops</a> &middot; <a href="guides/es/">ES</a></div>
   <input id="search" type="search" placeholder="Search by name, city or country&hellip;" autocomplete="off">
   <select id="country" aria-label="Country"></select>
   <div id="chips"></div>
@@ -124,6 +128,8 @@
     <div class="pw-label">Drinks</div>
     <div id="estrellachips"><span id="estrellachip" class="chip" title="Venues whose menu or drinks list confirms Estrella Galicia">&#127866; Estrella Galicia</span></div>
   </div>
+  <div id="favwrap"><span id="favchip" class="chip" title="Places you saved on this device">&#9825; Favorites</span></div>
+  <div id="listbar" hidden><b>Shared list</b> - <span id="listcount"></span> places. <a id="listsave">Save all to favorites</a> &middot; <a id="listexit">Show everything</a></div>
   <button id="geo" type="button">&#128205; Near me</button>
   <button id="share" type="button">&#128279; Copy share link</button>
   <div id="sharestatus" class="geostatus" role="status"></div>
@@ -202,6 +208,26 @@ function fmtDist(km){ return km<10 ? km.toFixed(1)+' km' : Math.round(km)+' km';
 const markers = [];
 { const el=document.getElementById('subcount'); if(el){ const cs=new Set(DATA.places.map(p=>p.country)); el.innerHTML=DATA.places.length.toLocaleString('en-GB')+' restaurants &amp; tapas bars &middot; '+cs.size+' countries &middot; ratings from Google Maps, checked 10 Sep 2026'; } }
 let estrellaSel=false;
+let favOnly = initialParams.get('f')==='1';
+let favs = new Set();
+try{ favs = new Set((JSON.parse(localStorage.getItem('sre_favs')||'[]')||[]).filter(u=>typeof u==='string')); }catch(e){}
+function saveFavs(){ try{ localStorage.setItem('sre_favs', JSON.stringify([...favs])); }catch(e){} }
+let listUids = (initialParams.get('list')||'').split(',').filter(u=>/^[a-z0-9-]+$/.test(u)).slice(0,200);
+let listActive = listUids.length>0;
+let listSet = new Set(listUids);
+function toggleFav(uid){ if(favs.has(uid)) favs.delete(uid); else favs.add(uid); saveFavs(); syncFavUI(); }
+window.__fav=function(uid,el){ toggleFav(uid); if(el) el.innerHTML = favs.has(uid)?'&#9829; Saved':'&#9825; Save to favorites'; };
+function syncFavUI(){
+  const el=document.getElementById('favchip');
+  el.innerHTML=(favs.size?'&#9829;':'&#9825;')+' Favorites ('+favs.size+')';
+  el.className='chip'+(favOnly?' on':'');
+  const lb=document.getElementById('listbar');
+  lb.hidden=!listActive;
+  if(listActive) document.getElementById('listcount').textContent=listUids.length;
+}
+document.getElementById('favchip').onclick=()=>{ favOnly=!favOnly; refresh(); };
+document.getElementById('listsave').onclick=()=>{ listUids.forEach(u=>favs.add(u)); saveFavs(); syncFavUI(); document.getElementById('sharestatus').textContent='List saved to your favorites.'; };
+document.getElementById('listexit').onclick=()=>{ listActive=false; listUids=[]; listSet=new Set(); refresh(); };
 function chipBar(){
   const c = document.getElementById('chips'); c.innerHTML='';
   DATA.dishes.forEach(d=>{
@@ -268,7 +294,7 @@ function popup(p){
     (p.menu?'<br>Menu: <a href="'+p.menu+'" target="_blank" rel="noopener">'+new URL(p.menu).hostname+'</a> (checked '+(p.menuChecked||'10 Sep 2026')+')':'')+
     (p.estrella?'<br>&#127866; Estrella Galicia: <b>'+p.estrella+'</b>'+(p.estrellaSource?' &middot; <a href="'+p.estrellaSource+'" target="_blank" rel="noopener">source</a>':'')+(p.estrellaChecked?' (checked '+p.estrellaChecked+')':''):'')+
     (p.notes?'<br><span class="cat">'+esc(p.notes)+'</span>':'')+
-    '<br><a href="#comments" onclick="window.__pick('+p._i+');return false;">&#128172; Comments</a>'+
+    '<br><a href="#" onclick="window.__fav(\''+p.uid+'\',this);return false;">'+(favs.has(p.uid)?'&#9829; Saved':'&#9825; Save to favorites')+'</a> &middot; <a href="#comments" onclick="window.__pick('+p._i+');return false;">&#128172; Comments</a>'+
     (rows?'<table>'+rows+'</table>':'')+'</div>';
 }
 DATA.places.forEach((p,i)=>{
@@ -290,13 +316,15 @@ function matches(p, idx){
   if(nameQuery && !(norm(p.name).includes(nameQuery)||norm(p.city).includes(nameQuery)||norm(p.country).includes(nameQuery))) return false;
   if(priceSel.size && !priceSel.has(p.price)) return false;
   if(estrellaSel && p.estrella!=='Yes') return false;
+  if(favOnly && !favs.has(p.uid)) return false;
+  if(listActive && !listSet.has(p.uid)) return false;
   return idx.every(i=>p.dishes && p.dishes[i]==='Yes');
 }
 function currentIdx(){ return DATA.dishes.map((d,i)=>selected.has(d)?i:-1).filter(i=>i>=0); }
 function filteredList(){ const idx=currentIdx(); return DATA.places.filter(p=>matches(p,idx)); }
 function inView(p){ return map.getBounds().contains([p.lat,p.lng]); }
 function renderTable(list){
-  const cols=['Name','Category','City','Country'];
+  const cols=['','Name','Category','City','Country'];
   if(DATA.places.some(p=>p.price)) cols.push('Typical price');
   if(userLoc) cols.push('Distance');
   cols.push('Rating','Ratings','Links');
@@ -313,13 +341,15 @@ function renderTable(list){
   sorted.forEach(p=>{
     const tr=document.createElement('tr');
     const menuCell = p.menu ? ' &middot; <a href="'+p.menu+'" target="_blank">Menu</a>' : '';
-    let cells='<td class="nm">'+esc(p.name)+'</td><td>'+esc(p.cat)+'</td><td>'+esc(p.city)+'</td><td>'+esc(p.country)+'</td>';
+    let cells='<td><span class="fav" data-uid="'+p.uid+'">'+(favs.has(p.uid)?'&#9829;':'&#9825;')+'</span></td><td class="nm">'+esc(p.name)+'</td><td>'+esc(p.cat)+'</td><td>'+esc(p.city)+'</td><td>'+esc(p.country)+'</td>';
     if(DATA.places.some(x=>x.price)) cells+='<td>'+esc(priceDisplay(p))+'</td>';
     if(userLoc) cells+='<td class="di">'+fmtDist(distKm(userLoc.lat,userLoc.lng,p.lat,p.lng))+'</td>';
     cells+='<td class="rt">&#9733; '+p.rating.toFixed(1)+'</td><td class="rc">'+(p.rcount==null?'':p.rcount)+'</td>'+
       '<td><a href="'+p.gmaps+'" target="_blank">Google Maps</a>'+menuCell+'</td>';
     tr.innerHTML=cells;
     tr.onclick=(e)=>{
+      const fv=e.target.closest('.fav');
+      if(fv){ const u=fv.getAttribute('data-uid'); toggleFav(u); fv.innerHTML=favs.has(u)?'&#9829;':'&#9825;'; return; }
       if(e.target.tagName==='A') return;
       const mk=markers.find(x=>x._p===p);
       selectPlace(p);
@@ -344,11 +374,12 @@ function refresh(){
   markers.forEach(m=>{ if(keep.has(m._p)) toAdd.push(m); else toRemove.push(m); });
   cluster.removeLayers(toRemove); cluster.addLayers(toAdd);
   document.getElementById('count').textContent='Showing '+keep.size+' of '+DATA.places.length+' places';
+  syncFavUI();
   updateTable();
   syncUrl();
 }
 let stateTimer;
-function stateUrl(){
+function stateUrl(forShare){
   const u=new URL(location.href); const c=map.getCenter();
   const dishIds=DATA.dishes.map((d,i)=>selected.has(d)?i:null).filter(i=>i!==null);
   const q=document.getElementById('search').value.trim();
@@ -356,7 +387,10 @@ function stateUrl(){
   set('d',dishIds.length?dishIds.join(','):''); set('r',minRating>0?minRating.toFixed(1):'');
   set('p',priceSel.size?[...priceSel].join(','):''); set('q',q); set('c',countrySel);
   set('lat',c.lat.toFixed(5)); set('lng',c.lng.toFixed(5)); set('z',map.getZoom());
-  set('place',currentPlace?currentPlace.uid:''); u.hash=''; return u;
+  set('place',currentPlace?currentPlace.uid:'');
+  if(forShare && favOnly){ set('list',[...favs].slice(0,200).join(',')); u.searchParams.delete('f'); }
+  else { set('f',favOnly?'1':''); set('list',listActive?listUids.join(','):''); }
+  u.hash=''; return u;
 }
 function syncUrl(){ clearTimeout(stateTimer); stateTimer=setTimeout(()=>history.replaceState(null,'',stateUrl()),80); }
 map.on('moveend',()=>{ updateTable(); syncUrl(); });
@@ -370,7 +404,7 @@ document.getElementById('search').oninput=(e)=>{
   searchTimer=setTimeout(()=>{ nameQuery=norm(e.target.value.trim()); refresh(); },150);
 };
 document.getElementById('clear').onclick=()=>{
-  selected.clear(); priceSel.clear(); estrellaSel=false; minRating=0; nameQuery=''; countrySel='';
+  selected.clear(); priceSel.clear(); estrellaSel=false; favOnly=false; minRating=0; nameQuery=''; countrySel='';
   slider.value='0'; rateval.textContent='Any';
   document.getElementById('search').value='';
   document.getElementById('country').value='';
@@ -427,7 +461,7 @@ function loadDisqus(p){
   document.body.appendChild(s);
 }
 document.getElementById('share').onclick=async()=>{
-  const status=document.getElementById('sharestatus'); const url=stateUrl().toString();
+  const status=document.getElementById('sharestatus'); const url=stateUrl(true).toString();
   try { await navigator.clipboard.writeText(url); status.textContent='Share link copied.'; }
   catch(e) { status.textContent='Copy this link: '+url; }
 };
