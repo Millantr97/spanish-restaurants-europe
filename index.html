@@ -70,6 +70,10 @@
   #tbl tbody tr{cursor:pointer}
   #tbl tbody tr:nth-child(even){background:#faf7f7}
   #tbl tbody tr:hover{background:#f3e6e9}
+  #pager{display:flex;gap:12px;align-items:center;justify-content:center;margin:10px 0 4px;font-size:12px;color:#555}
+  #pager button{font-size:12px;padding:5px 12px;border:1px solid #7B1B2C;border-radius:6px;background:#fff;color:#7B1B2C;cursor:pointer}
+  #pager button:disabled{opacity:.35;cursor:default}
+  #pager button:not(:disabled):hover{background:#7B1B2C;color:#fff}
   #tbl .nm{font-weight:600;color:#7B1B2C}
   #tbl .ad{color:#555;min-width:180px}
   #tbl .rt{white-space:nowrap;font-weight:600}
@@ -180,6 +184,7 @@
     <thead><tr id="thead-row"></tr></thead>
     <tbody id="tbody"></tbody>
   </table></div>
+  <div id="pager"></div>
 </div>
 <div id="comments">
   <h2>Comments <span id="cplace"></span></h2>
@@ -221,6 +226,7 @@ let countrySel = initialParams.get('c')||'';
 if(countrySel && !COUNTRIES.includes(countrySel)) countrySel='';
 let currentPlace = null;
 let userLoc = null, userMarker = null, userCircle = null, sortBy = 'rating';
+let page = 1; const PAGE_SIZE = 20;
 const PRICE_BANDS_FIXED = {1:'Up to £10',2:'£10-30',3:'£30-50',4:'£50+'};
 function distKm(a,b,c,d){ const R=6371, dLa=(c-a)*Math.PI/180, dLo=(d-b)*Math.PI/180;
   const h=Math.sin(dLa/2)*Math.sin(dLa/2)+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*Math.sin(dLo/2)*Math.sin(dLo/2);
@@ -352,13 +358,17 @@ function renderTable(list){
   const tb=document.getElementById('tbody'); tb.innerHTML='';
   if(!list.length){
     tb.innerHTML='<tr><td colspan="'+cols.length+'" id="empty">No places in this map area match the current filters.</td></tr>';
+    document.getElementById('pager').innerHTML='';
     return;
   }
   const sorted=list.slice().sort((a,b)=>{
     if(sortBy==='distance'&&userLoc) return distKm(userLoc.lat,userLoc.lng,a.lat,a.lng)-distKm(userLoc.lat,userLoc.lng,b.lat,b.lng);
     return (b.rating-a.rating)||a.name.localeCompare(b.name);
   });
-  sorted.forEach(p=>{
+  const pages=Math.max(1,Math.ceil(sorted.length/PAGE_SIZE));
+  if(page>pages) page=pages;
+  const pageRows=sorted.slice((page-1)*PAGE_SIZE, page*PAGE_SIZE);
+  pageRows.forEach(p=>{
     const tr=document.createElement('tr');
     const menuCell = p.menu ? ' &middot; <a href="'+p.menu+'" target="_blank">Menu</a>' : '';
     let cells='<td><span class="fav" data-uid="'+p.uid+'">'+(favs.has(p.uid)?'&#9829;':'&#9825;')+'</span></td><td class="nm">'+esc(p.name)+'</td><td>'+esc(p.cat)+'</td><td>'+esc(p.city)+'</td><td>'+esc(p.country)+'</td>';
@@ -379,8 +389,15 @@ function renderTable(list){
     };
     tb.appendChild(tr);
   });
+  const pg=document.getElementById('pager');
+  if(pages>1){
+    pg.innerHTML='<button type="button" id="pgprev"'+(page===1?' disabled':'')+'>&larr; Prev</button><span>Page '+page+' of '+pages+'</span><button type="button" id="pgnext"'+(page===pages?' disabled':'')+'>Next &rarr;</button>';
+    document.getElementById('pgprev').onclick=()=>{ if(page>1){ page--; renderTable(filteredList().filter(inView)); document.getElementById('results').scrollIntoView({behavior:'smooth'}); } };
+    document.getElementById('pgnext').onclick=()=>{ if(page<pages){ page++; renderTable(filteredList().filter(inView)); document.getElementById('results').scrollIntoView({behavior:'smooth'}); } };
+  } else { pg.innerHTML=''; }
 }
 function updateTable(){
+  page=1;
   const list = filteredList().filter(inView);
   document.getElementById('tcount').textContent='('+list.length+' in view)';
   renderTable(list);
