@@ -10,7 +10,8 @@
 window.MONETIZE = {
   viatorPid: "P00319561",
   viatorMcid: "42383",
-  adsenseClient: "ca-pub-8044414958800783"
+  adsenseClient: "ca-pub-8044414958800783",
+  goatcounterEndpoint: "https://spanishrestaurants.goatcounter.com/count"
 };
 (function () {
   var cfg = window.MONETIZE;
@@ -40,5 +41,58 @@ window.MONETIZE = {
     s.crossOrigin = "anonymous";
     s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + cfg.adsenseClient;
     document.head.appendChild(s);
+  }
+
+  /* Lightweight, cookie-free analytics. Query strings are deliberately
+   * excluded so shared-list contents and filter choices never leave the page.
+   * Custom events use fixed category names only, never link text or URLs. */
+  if (cfg.goatcounterEndpoint) {
+    var eventQueue = [];
+    window.goatcounter = {
+      path: function () { return location.pathname || "/"; },
+      referrer: function () {
+        if (!document.referrer) return "";
+        try { return new URL(document.referrer).origin; } catch (e) { return ""; }
+      }
+    };
+    function sendEvent(name) {
+      if (window.goatcounter && typeof window.goatcounter.count === "function") {
+        window.goatcounter.count({path: name, title: name, event: true});
+      } else {
+        eventQueue.push(name);
+      }
+    }
+    function flushEvents() {
+      while (eventQueue.length && window.goatcounter && typeof window.goatcounter.count === "function") {
+        var name = eventQueue.shift();
+        window.goatcounter.count({path: name, title: name, event: true});
+      }
+    }
+    function outboundEvent(a) {
+      var u;
+      try { u = new URL(a.href, location.href); } catch (e) { return ""; }
+      if (u.origin === location.origin || (u.protocol !== "http:" && u.protocol !== "https:")) return "";
+      var host = u.hostname.toLowerCase().replace(/^www\./, "");
+      if (host === "google.com" || host.endsWith(".google.com") || host === "maps.app.goo.gl") return "outbound-google-maps";
+      if (host === "viator.com" || host.endsWith(".viator.com")) return "outbound-viator";
+      if (/\bmenu|carta|men[uú]\b/i.test((a.textContent || "") + " " + u.pathname)) return "outbound-menu";
+      if (/\/shops\.html$/.test(location.pathname)) return "outbound-shop";
+      return "outbound-restaurant";
+    }
+    document.addEventListener("click", function (e) {
+      var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+      if (!a) return;
+      var name = outboundEvent(a);
+      if (name) sendEvent(name);
+    }, true);
+    var gc = document.createElement("script");
+    gc.setAttribute("data-goatcounter", cfg.goatcounterEndpoint);
+    gc.async = true;
+    gc.src = "//gc.zgo.at/count.js";
+    gc.addEventListener("load", function () {
+      flushEvents();
+      if (new URLSearchParams(location.search).get("list")) sendEvent("shared-list-open");
+    });
+    document.head.appendChild(gc);
   }
 })();
