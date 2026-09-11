@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://millantr97.github.io/spanish-restaurants-europe/sitemap.xml
+Sitemap: https://bestspanishrestaurants.com/sitemap.xml
